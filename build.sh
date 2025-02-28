@@ -8,7 +8,7 @@ latest_containerd_release=$(curl -s "https://api.github.com/repos/containerd/con
 latest_runc_release=$(curl -s "https://api.github.com/repos/opencontainers/runc/releases/latest" | jq -r ".tag_name")
 
 # containerd_tag=${latest_containerd_release/v/}
-containerd_tag=${latest_containerd_release#v~}
+containerd_tag=${latest_containerd_release#v}
 
 # download
 curl -LO "https://github.com/containerd/containerd/releases/download/${latest_containerd_release}/containerd-${containerd_tag}-linux-amd64.tar.gz"
